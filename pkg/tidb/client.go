@@ -96,7 +96,7 @@ func (c *Client) OpenSQLConn(user string, pass string) (*gorm.DB, error) {
 	overrideEndpoint := os.Getenv(tidbOverrideSQLEndpointEnvVar)
 	if overrideEndpoint != "" && c.sqlAPIAddress != "" {
 		log.Warn(fmt.Sprintf("Reject to establish a target specified TiDB SQL connection since `%s` is set", tidbOverrideSQLEndpointEnvVar))
-		return nil, ErrTiDBConnFailed.New("TiDB Dashboard is configured to only connect to specified TiDB host")
+		return nil, ErrTiDBConnFailed.New("YiDB Dashboard is configured to only connect to specified TiDB host")
 	}
 
 	addr := c.sqlAPIAddress
@@ -143,7 +143,7 @@ func (c *Client) SendGetRequest(path string) ([]byte, error) {
 	overrideEndpoint := os.Getenv(tidbOverrideStatusEndpointEnvVar)
 	if overrideEndpoint != "" && c.statusAPIAddress != "" {
 		log.Warn(fmt.Sprintf("Reject to establish a target specified TiDB status connection since `%s` is set", tidbOverrideStatusEndpointEnvVar))
-		return nil, ErrTiDBConnFailed.New("TiDB Dashboard is configured to only connect to specified TiDB host")
+		return nil, ErrTiDBConnFailed.New("YiDB Dashboard is configured to only connect to specified TiDB host")
 	}
 
 	addr := c.statusAPIAddress
